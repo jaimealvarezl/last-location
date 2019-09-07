@@ -11,6 +11,8 @@
   "author": "Jaime Noel Alvarez Luna",
   "dependencies": {
     "axios": "^0.19.0",
+    "google-maps-react": "^2.0.2",
+    "normalize.css": "^8.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },
@@ -34,7 +36,7 @@
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7",
+    "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.8.0"
   },
   "browserslist": {

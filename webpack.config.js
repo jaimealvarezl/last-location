@@ -64,10 +64,13 @@ module.exports = (env, argv) => {
             {
               loader: 'css-loader',
               options: {
-                modules: true,
-                localIdentName: '[name]__[local]___[hash:base64:5]',
-                camelCase: true,
+                modules: {
+                  mode: 'local',
+                  localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                  context: path.resolve(__dirname, 'src'),
+                },
                 sourceMap: isDevelopment,
+                localsConvention: 'camelCase',
               },
             },
             {
@@ -79,8 +82,8 @@ module.exports = (env, argv) => {
           ],
         },
         {
-          test: /\.s([ac])ss$/,
-          exclude: /\.module.(s([ac])ss)$/,
+          test: /\.s(a|c)ss$/,
+          exclude: /\.module.(s(a|c)ss)$/,
           loader: [
             isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
             'css-loader',
@@ -106,6 +109,7 @@ module.exports = (env, argv) => {
         chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
       }),
       new webpack.HashedModuleIdsPlugin(),
+      new webpack.EnvironmentPlugin(['MAP_API_KEY', 'API_URL']),
     ],
     resolve: {
       extensions: ['.js', '.jsx', '.scss'],
