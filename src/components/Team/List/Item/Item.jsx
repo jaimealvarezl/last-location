@@ -1,7 +1,14 @@
+// @flow
+
 import React from 'react';
 import EmployeeList from '../../../Employee/List';
+import type { Team } from '../../../../types/Team';
 
-function TeamListItem(props) {
+type Props ={
+  team: Team
+}
+
+function TeamListItem(props: Props) {
   const { team } = props;
 
   return (

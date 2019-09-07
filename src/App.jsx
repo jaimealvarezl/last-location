@@ -1,13 +1,17 @@
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import MapContainer from './components/MapContainer';
 import teamsService from './services/teamsService';
 import TeamList from './components/Team/List';
-import './styles/main.scss';
 import EmployeeMarker from './components/Employee/Marker';
+import type { Team } from './types/Team';
+import type { Employee } from './types/Employee';
+import './styles/main.scss';
 
 
 function App() {
-  const [teams, setTeams] = React.useState([]);
+  const [teams, setTeams] = React.useState<Array<Team>>([]);
 
   React.useEffect(() => {
     teamsService.getTeams()
@@ -16,10 +20,11 @@ function App() {
       });
   }, []);
 
-  const employees = React.useMemo(() => teams.reduce((acc, team) => {
+  const employees = React.useMemo<Array<Employee>>(() => teams.reduce((acc, team) => {
     Array.prototype.push.apply(acc, team.employees);
     return acc;
   }, []), [teams]);
+
 
   return (
     <>

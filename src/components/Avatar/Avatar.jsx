@@ -1,7 +1,13 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import styles from './avatar.module.scss';
 
-function Avatar(props) {
+
+type Props = {
+  children: React.Element
+}
+
+function Avatar(props: Props) {
   const { children } = props;
 
   return (

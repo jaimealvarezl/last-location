@@ -1,16 +1,24 @@
-import React from 'react';
+// @flow
+
+import * as React from 'react';
 import { GoogleApiWrapper, Map } from 'google-maps-react';
 import { MAP_API_KEY } from '../helpers/constants';
 
 
-function MapContainer(props) {
-  const { google, children, style } = props;
+type Props = {
+  google: Object,
+  children: React.Element
+}
+
+
+function BaseMap(props: Props) {
+  const { google, children } = props;
   return (
-    <Map google={google} style={style}>
+    <Map google={google}>
       {children}
     </Map>
   );
 }
 
-
-export default GoogleApiWrapper({ apiKey: MAP_API_KEY })(MapContainer);
+const MapContainer = GoogleApiWrapper({ apiKey: MAP_API_KEY })(BaseMap);
+export default MapContainer;
