@@ -4,7 +4,7 @@ import React from 'react';
 import Avatar from '../../../Avatar';
 import type { Employee } from '../../../../types/Employee';
 
-type Props ={
+type Props = {
   employee: Employee
 }
 

@@ -82,8 +82,8 @@ module.exports = (env, argv) => {
           ],
         },
         {
-          test: /\.s(a|c)ss$/,
-          exclude: /\.module.(s(a|c)ss)$/,
+          test: /\.s([ac])ss$/,
+          exclude: /\.module.(s([ac])ss)$/,
           loader: [
             isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
             'css-loader',
@@ -109,7 +109,10 @@ module.exports = (env, argv) => {
         chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
       }),
       new webpack.HashedModuleIdsPlugin(),
-      new webpack.EnvironmentPlugin(['MAP_API_KEY', 'API_URL']),
+      new webpack.EnvironmentPlugin({
+        MAP_API_KEY: '',
+        API_URL: '',
+      }),
     ],
     resolve: {
       extensions: ['.js', '.jsx', '.scss'],

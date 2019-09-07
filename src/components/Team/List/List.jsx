@@ -5,7 +5,7 @@ import TeamListItem from './Item';
 import type { Team } from '../../../types/Team';
 
 type Props = {
-teams: Array<Team>
+  teams: Array<Team>
 }
 
 function TeamList(props: Props) {
