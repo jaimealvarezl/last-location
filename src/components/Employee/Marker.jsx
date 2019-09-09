@@ -28,7 +28,6 @@ function EmployeeMarker(props: Props) {
 
   return (
     <Marker
-      name={employee.fullName}
       position={position}
       google={google}
       map={map}
