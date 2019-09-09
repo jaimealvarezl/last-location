@@ -1,9 +1,9 @@
 // @flow
 
 import * as React from 'react';
-import type { Team } from '../../types/Team';
 import { SelectedEmployeeContext } from '../Employee/SelectedEmpoyeeProvider';
 import teamsService from '../../services/teamsService';
+import type { Team } from '../../types/Team';
 import type { Employee } from '../../types/Employee';
 import type { Point } from '../../types/Point';
 
@@ -14,7 +14,29 @@ function useLastLocation() {
   React.useEffect(() => {
     teamsService.getTeams()
       .then((result) => {
-        setTeams(result.data);
+        const processedTeams = result.data.map((t: Team) => {
+          const employees = t.employees.map((employee) => {
+            const [lat, lng] = employee.lastLocation.split(',')
+              .map((num) => Number.parseFloat(num));
+
+            return ({
+              ...employee,
+              lastPosition: {
+                lat,
+                lng,
+              },
+            });
+          })
+            .sort((a, b) => a.fullName.localeCompare(b.fullName));
+
+          return ({
+            ...t,
+            employees,
+          });
+        });
+
+
+        setTeams(processedTeams);
       });
   }, []);
 
@@ -30,14 +52,13 @@ function useLastLocation() {
     return employees;
   }, [selectedEmployee, employees]);
 
-  const bounds = React.useMemo<Array<Point>>(() => employeeList.map((employee) => {
-    const [lat, lng] = employee.lastLocation.split(',')
-      .map((number) => Number.parseFloat(number));
-    return {
-      lat,
-      lng,
-    };
-  }), [employees]);
+  const bounds = React.useMemo<Array<Point>>(() => {
+    if (selectedEmployee) {
+      return [selectedEmployee.lastPosition];
+    }
+
+    return employeeList.map((employee) => employee.lastPosition);
+  }, [employees, selectedEmployee]);
 
   return {
     bounds,

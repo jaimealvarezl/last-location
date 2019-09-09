@@ -1,46 +1,35 @@
 // @flow
 
 import React from 'react';
-import { Marker } from 'google-maps-react';
+import { Marker } from '@react-google-maps/api';
+import { SelectedEmployeeMarkerContext } from './SelectedEmployeeMarkerProvider';
 import type { Employee } from '../../types/Employee';
 
 type Props = {
-  employee: Employee,
-  google?: Object,
-  map?: Object,
-  mapCenter?: Object
+  employee: Employee
 }
 
 function EmployeeMarker(props: Props) {
-  const {
-    employee, google, map, mapCenter,
-  } = props;
+  const { employee } = props;
+  const [marker, setMarker] = React.useState(null);
+  const { setSelectedMarker } = React.useContext(SelectedEmployeeMarkerContext);
 
-  const position = React.useMemo(() => {
-    const [lat, lng] = employee.lastLocation.split(',')
-      .map((pos) => Number.parseFloat(pos));
+  const handleClick = React.useCallback(() => {
+    setSelectedMarker(employee, marker);
+  }, [marker]);
+  const handleLoad = React.useCallback((markerObj) => {
+    setMarker(markerObj);
+  }, []);
 
-    return {
-      lat,
-      lng,
-    };
-  }, [employee.lastLocation]);
 
   return (
     <Marker
-      position={position}
-      google={google}
-      map={map}
-      mapCenter={mapCenter}
+      onLoad={handleLoad}
+      onClick={handleClick}
+      position={employee.lastPosition}
     />
   );
 }
-
-EmployeeMarker.defaultProps = {
-  google: null,
-  map: null,
-  mapCenter: null,
-};
 
 
 export default EmployeeMarker;

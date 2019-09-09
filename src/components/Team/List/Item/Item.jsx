@@ -4,8 +4,8 @@ import React from 'react';
 import EmployeeList from '../../../Employee/List';
 import ListItem from '../../../UI/List/Item';
 import ListItemAvatar from '../../../UI/List/Item/Avatar';
-import type { Team } from '../../../../types/Team';
 import Avatar from '../../../UI/Avatar';
+import type { Team } from '../../../../types/Team';
 
 type Props = {
   team: Team

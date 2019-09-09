@@ -13,8 +13,6 @@ function SelectedEmployeeProvider(props: Props) {
   const { children } = props;
 
   const [selectedEmployee, _setSelectedEmployee] = React.useState<Employee>(null);
-  const [selectedMarker, setSelectedMarker] = React.useState(null);
-
   const setSelectedEmployee = React.useCallback((employee: Employee) => {
     _setSelectedEmployee((prev) => {
       if (prev && prev.id === employee.id) {
@@ -28,8 +26,6 @@ function SelectedEmployeeProvider(props: Props) {
   const value = React.useMemo(() => ({
     selectedEmployee,
     setSelectedEmployee,
-    selectedMarker,
-    setSelectedMarker,
   }), [selectedEmployee, setSelectedEmployee]);
 
 

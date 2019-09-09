@@ -5,7 +5,7 @@ import styles from './avatar.module.scss';
 
 
 type Props = {
-  children: React.Element,
+  children?: React.Element,
   src?: string,
   alt?: string,
   component?: string,
@@ -37,6 +37,7 @@ Avatar.defaultProps = {
   alt: null,
   component: 'div',
   className: null,
+  children: null,
 };
 
 export default Avatar;

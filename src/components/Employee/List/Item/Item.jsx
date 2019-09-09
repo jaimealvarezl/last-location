@@ -5,8 +5,8 @@ import clsx from 'clsx';
 import Avatar from '../../../UI/Avatar';
 import ListItem from '../../../UI/List/Item';
 import ListItemAvatar from '../../../UI/List/Item/Avatar';
-import type { Employee } from '../../../../types/Employee';
 import { SelectedEmployeeContext } from '../../SelectedEmpoyeeProvider';
+import type { Employee } from '../../../../types/Employee';
 import styles from './item.module.scss';
 
 type Props = {

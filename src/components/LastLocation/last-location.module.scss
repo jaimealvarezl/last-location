@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  height: calc(100vh - 110px);
+
+  & > ul {
+    height: 100%;
+    overflow: auto;
+    margin-right: 0;
+    margin-top: 0;
+
+    & > li {
+      position: sticky;
+      top: -8px;
+      background-color: white;
+      z-index: 1;
+    }
+  }
+}

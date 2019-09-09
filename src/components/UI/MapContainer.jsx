@@ -1,52 +1,67 @@
 // @flow
 
 import * as React from 'react';
-import { GoogleApiWrapper, Map } from 'google-maps-react';
+import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 import { MAP_API_KEY } from '../../helpers/constants';
 import type { Point } from '../../types/Point';
 
 
 type Props = {
-  google: Object,
   children: React.Element,
-  bounds?: Array<Point>
+  bounds?: Array<Point>,
+  maxBoundZoom?: number
 }
 
 
-function BaseMap(props: Props) {
-  const { google, children, bounds: boundsProps } = props;
+function MapContainer(props: Props) {
+  const { children, bounds: boundsProps, maxBoundZoom } = props;
   const [mapRef, setMapRef] = React.useState(null);
-  const [bounds, setBounds] = React.useState(null);
+  const { isLoaded, loadError } = useLoadScript({ googleMapsApiKey: MAP_API_KEY });
 
   const handleLoad = React.useCallback((map) => {
     setMapRef(map);
   }, []);
 
   React.useEffect(() => {
-    console.log(google);
-    if (boundsProps && boundsProps.length > 0) {
-      const newBounds = bounds || new google.maps.LatLngBounds();
-      boundsProps.forEach((point) => newBounds.extend(point));
-      if (!bounds) {
-        setBounds(newBounds);
-      }
-    } else {
-      setBounds(null);
+    if (mapRef && boundsProps && boundsProps.length > 0) {
+      // eslint-disable-next-line no-undef
+      const bounds = new window.google.maps.LatLngBounds();
+      boundsProps.forEach((point) => bounds.extend(point));
+      mapRef.fitBounds(bounds);
+      const zoom = mapRef.getZoom();
+
+      if (zoom > maxBoundZoom) mapRef.setZoom(maxBoundZoom);
     }
-  }, [boundsProps]);
+  }, [boundsProps, mapRef, maxBoundZoom]);
 
-  console.log({ mapRef });
-
+  if (!isLoaded) {
+    return <div>Spinner</div>;
+  }
+  if (loadError) {
+    return <span>{`Map cannot be loaded ${loadError}`}</span>;
+  }
   return (
-    <Map google={google} bounds={bounds} onLoad={handleLoad}>
+    <GoogleMap
+      onLoad={handleLoad}
+      mapContainerStyle={{
+        height: '100%',
+        width: '100%',
+      }}
+      options={{
+        mapTypeControlOptions: {
+          mapTypeIds: [],
+        },
+        streetViewControl: false,
+      }}
+    >
       {children}
-    </Map>
+    </GoogleMap>
   );
 }
 
-BaseMap.defaultProps = {
+MapContainer.defaultProps = {
   bounds: null,
+  maxBoundZoom: 15,
 };
 
-const MapContainer = GoogleApiWrapper({ apiKey: MAP_API_KEY })(BaseMap);
 export default MapContainer;

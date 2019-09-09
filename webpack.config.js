@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-
 module.exports = (env, argv) => {
   const isDevelopment = argv.mode !== 'production';
 
@@ -103,7 +102,6 @@ module.exports = (env, argv) => {
         template: path.resolve(__dirname, 'src', 'index.html'),
         filename: 'index.html',
       }),
-
       new MiniCssExtractPlugin({
         filename: isDevelopment ? '[name].css' : '[name].[hash].css',
         chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css',
