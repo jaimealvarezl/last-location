@@ -2,7 +2,10 @@
 
 import React from 'react';
 import EmployeeList from '../../../Employee/List';
+import ListItem from '../../../UI/List/Item';
+import ListItemAvatar from '../../../UI/List/Item/Avatar';
 import type { Team } from '../../../../types/Team';
+import Avatar from '../../../UI/Avatar';
 
 type Props = {
   team: Team
@@ -11,11 +14,18 @@ type Props = {
 function TeamListItem(props: Props) {
   const { team } = props;
 
+  const acronym = React.useMemo<string>(() => team.name.split(' ')
+    .map((word) => word[0])
+    .join(''), [team.name]);
+
   return (
-    <li>
-      <span>{team.name}</span>
+    <>
+      <ListItem>
+        <ListItemAvatar><Avatar>{acronym}</Avatar></ListItemAvatar>
+        <span>{team.name}</span>
+      </ListItem>
       <EmployeeList employees={team.employees} />
-    </li>
+    </>
   );
 }
 

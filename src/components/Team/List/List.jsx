@@ -2,6 +2,7 @@
 
 import React from 'react';
 import TeamListItem from './Item';
+import List from '../../UI/List';
 import type { Team } from '../../../types/Team';
 
 type Props = {
@@ -12,9 +13,9 @@ function TeamList(props: Props) {
   const { teams } = props;
 
   return (
-    <ul>
+    <List>
       {teams.map((team) => <TeamListItem key={team.id} team={team} />)}
-    </ul>
+    </List>
   );
 }
 

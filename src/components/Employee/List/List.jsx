@@ -2,6 +2,7 @@
 
 import React from 'react';
 import EmployeeListItem from './Item';
+import List from '../../UI/List';
 import type { Employee } from '../../../types/Employee';
 
 type Props = {
@@ -12,9 +13,9 @@ function EmployeeList(props: Props) {
   const { employees } = props;
 
   return (
-    <ul>
+    <List>
       {employees.map((employee) => <EmployeeListItem employee={employee} key={employee.id} />)}
-    </ul>
+    </List>
   );
 }
 

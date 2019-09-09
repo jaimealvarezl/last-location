@@ -8,6 +8,7 @@ import EmployeeMarker from './components/Employee/Marker';
 import type { Team } from './types/Team';
 import type { Employee } from './types/Employee';
 import './styles/main.scss';
+import type { Point } from './types/Point';
 
 
 function App() {
@@ -25,6 +26,14 @@ function App() {
     return acc;
   }, []), [teams]);
 
+  const bounds = React.useMemo<Array<Point>>(() => employees.map((employee) => {
+    const [lat, lng] = employee.lastLocation.split(',')
+      .map((number) => Number.parseFloat(number));
+    return {
+      lat,
+      lng,
+    };
+  }), [employees]);
 
   return (
     <>
@@ -41,12 +50,11 @@ function App() {
           height: 'calc(100vh - 80px)',
         }}
         >
-          <MapContainer>
+          <MapContainer bounds={bounds}>
             {employees.map((employee) => <EmployeeMarker key={employee.id} employee={employee} />)}
           </MapContainer>
         </div>
       </main>
-
     </>
   );
 }

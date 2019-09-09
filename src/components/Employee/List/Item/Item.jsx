@@ -1,7 +1,9 @@
 // @flow
 
 import React from 'react';
-import Avatar from '../../../Avatar';
+import Avatar from '../../../UI/Avatar';
+import ListItem from '../../../UI/List/Item';
+import ListItemAvatar from '../../../UI/List/Item/Avatar';
 import type { Employee } from '../../../../types/Employee';
 
 type Props = {
@@ -12,12 +14,14 @@ function EmployeeListItem(props: Props) {
   const { employee } = props;
 
   return (
-    <li>
-      <Avatar>
-        <img src={employee.avatarUrl} alt={employee.fullName} />
-      </Avatar>
+    <ListItem>
+      <ListItemAvatar>
+        <Avatar>
+          <img src={employee.avatarUrl} alt={employee.fullName} />
+        </Avatar>
+      </ListItemAvatar>
       <span>{employee.fullName}</span>
-    </li>
+    </ListItem>
   );
 }
 
