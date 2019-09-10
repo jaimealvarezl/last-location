@@ -1,0 +1,151 @@
+[
+  {
+    "id": "mag",
+    "name": "Management",
+    "employees": [
+      {
+        "id": "e1",
+        "fullName": "Orlando Arguello",
+        "avatarUrl": "https://api.adorable.io/avatars/256/orlando@adorable.io.png",
+        "lastLocation": "9.884247,-84.2243857",
+        "teamId": "mag"
+      },
+      {
+        "id": "e2",
+        "fullName": "Camilo Mendieta",
+        "avatarUrl": "https://api.adorable.io/avatars/256/camilo@adorable.io.png",
+        "lastLocation": "9.884247,-84.2243857",
+        "teamId": "mag"
+      }
+    ]
+  },
+  {
+    "id": "svc",
+    "name": "Service",
+    "employees": [
+      {
+        "id": "e3",
+        "fullName": "David Lizarazo",
+        "avatarUrl": "https://api.adorable.io/avatars/256/david@adorable.io.png",
+        "lastLocation": "9.784247,-84.2243857",
+        "teamId": "svc"
+      },
+      {
+        "id": "e4",
+        "fullName": "Katherine Fonseca",
+        "avatarUrl": "https://api.adorable.io/avatars/256/kat@adorable.io.png",
+        "lastLocation": "9.984247,-84.2243857",
+        "teamId": "svc"
+      },
+      {
+        "id": "e5",
+        "fullName": "Norma Gurcia",
+        "avatarUrl": "https://api.adorable.io/avatars/256/norma@adorable.io.png",
+        "lastLocation": "9.884247,-84.3243857",
+        "teamId": "svc"
+      }
+    ]
+  },
+  {
+    "id": "bus",
+    "name": "Business",
+    "employees": [
+      {
+        "id": "e6",
+        "fullName": "Rodrigo Perez",
+        "avatarUrl": "https://api.adorable.io/avatars/256/rodri@adorable.io.png",
+        "lastLocation": "14.6262096,-90.5626018",
+        "teamId": "bus"
+      },
+      {
+        "id": "e7",
+        "fullName": "Juan Fernando Sanchez",
+        "avatarUrl": "https://api.adorable.io/avatars/256/juan@adorable.io.png",
+        "lastLocation": "14.6262096,-90.6626018",
+        "teamId": "bus"
+      },
+      {
+        "id": "e8",
+        "fullName": "Noé Leiva",
+        "avatarUrl": "https://api.adorable.io/avatars/256/noe@adorable.io.png",
+        "lastLocation": "12.0976239,-86.3985506",
+        "teamId": "bus"
+      },
+      {
+        "id": "e9",
+        "fullName": "Blanca Lidia",
+        "avatarUrl": "https://api.adorable.io/avatars/256/blanca@adorable.io.png",
+        "lastLocation": "14.7262096,-90.5626018",
+        "teamId": "bus"
+      }
+    ]
+  },
+  {
+    "id": "rad",
+    "name": "Research & Development",
+    "employees": [
+      {
+        "id": "e10",
+        "fullName": "Jimmy Sáenz",
+        "avatarUrl": "https://api.adorable.io/avatars/256/jimmy@adorable.io.png",
+        "lastLocation": "12.086279,-86.3665977",
+        "teamId": "rad"
+      },
+      {
+        "id": "e11",
+        "fullName": "Luis Valdivia",
+        "avatarUrl": "https://api.adorable.io/avatars/256/luis@adorable.io.png",
+        "lastLocation": "12.100927,-86.2269907",
+        "teamId": "rad"
+      },
+      {
+        "id": "e12",
+        "fullName": "Jesser Fonseca",
+        "avatarUrl": "https://api.adorable.io/avatars/256/jesser@adorable.io.png",
+        "lastLocation": "12.100927,-86.3269907",
+        "teamId": "rad"
+      },
+      {
+        "id": "e13",
+        "fullName": "Joshua Cajina",
+        "avatarUrl": "https://api.adorable.io/avatars/256/josh@adorable.io.png",
+        "lastLocation": "12.100927,-86.4269907",
+        "teamId": "rad"
+      },
+      {
+        "id": "e14",
+        "fullName": "Rafael Alegría",
+        "avatarUrl": "https://api.adorable.io/avatars/256/rafa@adorable.io.png",
+        "lastLocation": "12.100927,-86.5269907",
+        "teamId": "rad"
+      },
+      {
+        "id": "e15",
+        "fullName": "Allison Orozco",
+        "avatarUrl": "https://api.adorable.io/avatars/256/alli@adorable.io.png",
+        "lastLocation": "12.100927,-86.6269907",
+        "teamId": "rad"
+      }
+    ]
+  },
+  {
+    "id": "qas",
+    "name": "Quality Assurance",
+    "employees": [
+      {
+        "id": "e16",
+        "fullName": "Jorge Rivera",
+        "avatarUrl": "https://api.adorable.io/avatars/256/grif@adorable.io.png",
+        "lastLocation": "12.100927,-86.7269907",
+        "teamId": "qas"
+      },
+      {
+        "id": "e17",
+        "fullName": "Yeltsin Miranda",
+        "avatarUrl": "https://api.adorable.io/avatars/256/yel@adorable.io.png",
+        "lastLocation": "12.100927,-86.8269907",
+        "teamId": "qas"
+      }
+    ]
+  }
+]
