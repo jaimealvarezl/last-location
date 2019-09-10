@@ -1,6 +1,6 @@
 # Last Location
 
-Display in a map the last location available from a list of users
+Display in a map the last location from a list of users
 
 ## Getting Started
 
