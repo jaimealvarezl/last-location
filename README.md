@@ -12,6 +12,7 @@ Before running the application make sure to:
 
 To run the just hit `npm start` or `yarn start`
 
+Check `sample.json` to see how data is structured
 
 ## Running the tests
 
