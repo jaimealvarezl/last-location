@@ -1,18 +1,17 @@
 // @flow
 import * as React from 'react';
-
 import styles from './toolbar.module.scss';
 
 type Props = {
-  title: string
+  children: React.Node
 }
 
 function Toolbar(props: Props) {
-  const { title } = props;
+  const { children } = props;
 
   return (
-    <div>
-      <h1 className={styles.title}>{title}</h1>
+    <div className={styles.toolbar}>
+      {children}
     </div>
   );
 }

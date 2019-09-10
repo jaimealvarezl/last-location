@@ -60,10 +60,31 @@ function useLastLocation() {
     return employeeList.map((employee) => employee.lastPosition);
   }, [employees, selectedEmployee]);
 
+  const [listVisibility, setListVisibility] = React.useState(false);
+
+  const toggleListVisibility = React.useCallback(() => {
+    setListVisibility((prev) => !prev);
+  }, []);
+
+  React.useEffect(() => {
+    if (selectedEmployee) {
+      setListVisibility(false);
+    }
+  }, [selectedEmployee]);
+
+  const handleMapClick = React.useCallback(() => {
+    if (listVisibility) {
+      setListVisibility(false);
+    }
+  }, [listVisibility]);
+
   return {
     bounds,
     employees: employeeList,
     teams,
+    toggleListVisibility,
+    listVisibility,
+    handleMapClick,
   };
 }
 

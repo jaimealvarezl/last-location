@@ -9,12 +9,15 @@ import type { Point } from '../../types/Point';
 type Props = {
   children: React.Element,
   bounds?: Array<Point>,
-  maxBoundZoom?: number
+  maxBoundZoom?: number,
+  onClick?: Function
 }
 
 
 function MapContainer(props: Props) {
-  const { children, bounds: boundsProps, maxBoundZoom } = props;
+  const {
+    children, bounds: boundsProps, maxBoundZoom, onClick,
+  } = props;
   const [mapRef, setMapRef] = React.useState(null);
   const { isLoaded, loadError } = useLoadScript({ googleMapsApiKey: MAP_API_KEY });
 
@@ -42,6 +45,7 @@ function MapContainer(props: Props) {
   }
   return (
     <GoogleMap
+      onClick={onClick}
       onLoad={handleLoad}
       mapContainerStyle={{
         height: '100%',
@@ -62,6 +66,7 @@ function MapContainer(props: Props) {
 MapContainer.defaultProps = {
   bounds: null,
   maxBoundZoom: 15,
+  onClick: null,
 };
 
 export default MapContainer;

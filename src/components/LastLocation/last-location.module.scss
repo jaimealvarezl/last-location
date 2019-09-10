@@ -1,10 +1,13 @@
+$mobile-breakpoint: 480px;
+
 .container {
   display: flex;
-  height: calc(100vh - 110px);
+  height: calc(100vh - 68px);
 
   & > ul {
     height: 100%;
     overflow: auto;
+    box-sizing: border-box;
     margin-right: 0;
     margin-top: 0;
 
@@ -13,6 +16,39 @@
       top: -8px;
       background-color: white;
       z-index: 1;
+    }
+  }
+}
+
+
+.map {
+  flex: 1;
+  position: relative;
+  height: calc(100vh - 68px);
+}
+
+.icon {
+  cursor: pointer;
+  display: none;
+
+  @media (max-width: $mobile-breakpoint) {
+    display: initial;
+  }
+}
+
+
+.teamList {
+  background-color: white;
+  margin-left: 0;
+  z-index: 1;
+  transition: left 1s ease-out;
+
+  @media (max-width: $mobile-breakpoint) {
+    position: fixed;
+    left: 0;
+
+    &.hidden {
+      left: -100%;
     }
   }
 }

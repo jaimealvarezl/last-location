@@ -6,17 +6,22 @@ import List from '../../UI/List';
 import type { Team } from '../../../types/Team';
 
 type Props = {
-  teams: Array<Team>
+  teams: Array<Team>,
+  className?: string
 }
 
 function TeamList(props: Props) {
-  const { teams } = props;
+  const { teams, className } = props;
 
   return (
-    <List>
+    <List className={className}>
       {teams.map((team) => <TeamListItem key={team.id} team={team} />)}
     </List>
   );
 }
+
+TeamList.defaultProps = {
+  className: null,
+};
 
 export default TeamList;

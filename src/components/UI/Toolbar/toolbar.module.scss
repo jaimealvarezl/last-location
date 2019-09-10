@@ -1,3 +1,18 @@
-.title {
-  margin-left: 20px;
+.toolbar {
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: cornflowerblue;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  align-items: center;
+
+  & > * {
+    margin-right: 8px;
+  }
+
+  h1 {
+    margin: 0;
+  }
 }
