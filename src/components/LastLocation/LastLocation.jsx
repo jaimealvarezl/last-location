@@ -7,6 +7,7 @@ import useLastLocation from './useLastLocation';
 import EmployeeMarker from '../Employee/Marker';
 import EmployeeInfoWindow from '../Employee/InfoWindow/InfoWindow';
 import styles from './last-location.module.scss';
+import Toolbar from '../UI/Toolbar';
 import type { Employee } from '../../types/Employee';
 
 function LastLocation() {
@@ -14,9 +15,7 @@ function LastLocation() {
 
   return (
     <>
-      <header>
-        <h1>Last Location</h1>
-      </header>
+      <Toolbar title="Last Location" />
       <main className={styles.container}>
         <TeamList teams={teams} />
         <div style={{
