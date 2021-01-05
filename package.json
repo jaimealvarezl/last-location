@@ -12,7 +12,7 @@
   "author": "Jaime Noel Alvarez Luna",
   "dependencies": {
     "@react-google-maps/api": "^1.6.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "clsx": "^1.0.4",
     "normalize.css": "^8.0.1",
     "react": "^16.9.0",
